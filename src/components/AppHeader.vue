@@ -6,7 +6,7 @@
 
 <style>
   .header-container {
-    padding: 15px;
+    padding: 0px 6%
   }
 
   .logo-header {

@@ -1,8 +1,8 @@
 <template>
   <div class="searchbar-container">
-    <input 
-      class="searchbar-input" 
-      type="text" 
+    <input
+      class="searchbar-input"
+      type="text"
       placeholder="Busca por nome, ano de lançamento, gênero, gravadora, produção ..."
     />
     <button class="submit-search-btn" type="submit">
@@ -14,14 +14,14 @@
 <script>
 export default {
 
-}
+};
 </script>
 
 <style lang="scss" scoped>
 
   .searchbar-container {
     background: #f5f6f6;
-    padding: 15px 0;
+    padding: 15px;
     display: flex;
     justify-content: center;
   }
