@@ -1,8 +1,8 @@
 <template>
   <section class="sec-my-collection">
     <h1 class="title">MINHA COLEÇÃO</h1>
-      <ul v-if="discs.items.length" class="disc-list">
-        <li class="disc-item" v-for="disc in discs.items" :key="disc.id">
+      <ul v-if="discs.length" class="disc-list">
+        <li class="disc-item" v-for="disc in discs" :key="disc.id">
           <div class='btn-container'>
             <button><font-awesome-icon class="search-icon" icon="edit" /></button>
             <button> <font-awesome-icon class="search-icon" icon="trash"/></button>
@@ -41,7 +41,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: mapGetters({
-    discs: 'discs',
+    discs: 'discs/items',
   }),
 };
 </script>
