@@ -4,16 +4,39 @@
       class="searchbar-input"
       type="text"
       placeholder="Busca por nome, ano de lançamento, gênero, gravadora, produção ..."
+      v-model="searchParam"
     />
-    <button class="submit-search-btn" type="submit">
+    <button class="submit-search-btn" type="submit" @click="handleSubmitButton">
       <font-awesome-icon class="search-icon" icon="search" />
     </button>
   </div>
 </template>
 
 <script>
-export default {
+import { mapActions } from 'vuex';
 
+export default {
+  data: () => ({
+    searchParam: '',
+  }),
+  methods: {
+    async handleSubmitButton() {
+      try {
+        this.showLoading();
+        const { searchParam } = this;
+        await this.getDiscs({ searchParam });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.hideLoading();
+      }
+    },
+    ...mapActions({
+      getDiscs: 'discs/getDiscs',
+      showLoading: 'loading/show',
+      hideLoading: 'loading/hide',
+    }),
+  },
 };
 </script>
 
@@ -51,11 +74,15 @@ export default {
     border-top-right-radius: 30px 30px;
     border-bottom-right-radius: 30px 30px;
     cursor: pointer;
+
+    &:hover {
+      background: #eff1f1;
+    }
   }
 
   .search-icon {
     font-size: 18px;
-    color: #6D6D6D;
+    color: #f47c48;
   }
 
 </style>

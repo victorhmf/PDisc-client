@@ -17,15 +17,23 @@ export default {
     DiscList,
   },
   async mounted() {
-    try {
-      await this.getDiscs();
-    } catch (error) {
-      console.log(error);
-    }
+    await this.loadData();
   },
   methods: {
+    async loadData() {
+      try {
+        this.showLoading();
+        await this.getDiscs();
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.hideLoading();
+      }
+    },
     ...mapActions({
       getDiscs: 'discs/getDiscs',
+      showLoading: 'loading/show',
+      hideLoading: 'loading/hide',
     }),
   },
 };

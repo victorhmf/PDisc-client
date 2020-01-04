@@ -4,7 +4,6 @@ const state = {
   items: [],
   totalItems: 0,
   currentPage: 1,
-  loading: false,
 };
 
 const mutations = {

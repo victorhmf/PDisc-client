@@ -5,7 +5,7 @@ const actions = {};
 
 actions.getDiscs = ({ commit }, queryParams = {}) => {
   const { page = 1, searchParam = '' } = queryParams;
-  api
+  return api
     .get(`/discs?page=${page}&searchParam=${searchParam}`)
     .then(({ data }) => {
       commit(types.SET_ITEMS, data.discs);
