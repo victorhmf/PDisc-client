@@ -1,6 +1,6 @@
 <template>
   <div>
-    <disc-form @onSubmit="handleSubmit"/>
+    <disc-form @onSubmit="handleSubmit" :disc=disc />
   </div>
 </template>
 
@@ -12,12 +12,15 @@ export default {
   components: {
     DiscForm,
   },
+  props: {
+    disc: Object,
+  },
   methods: {
     async handleSubmit(data) {
       try {
-        console.log(data);
         this.showLoading();
-        await this.createDisc(data);
+        await this.updateDisc(data);
+
         this.$router.push({ name: 'Home' });
       } catch (error) {
         console.log(error.response);
@@ -26,7 +29,7 @@ export default {
       }
     },
     ...mapActions({
-      createDisc: 'discs/createDisc',
+      updateDisc: 'discs/updateDisc',
       showLoading: 'loading/show',
       hideLoading: 'loading/hide',
     }),

@@ -8,7 +8,14 @@ const state = {
 
 const mutations = {
   [types.SET_ITEMS](state, items) {
-    state.items = items;
+    const sanitazedItems = items.map((item) => {
+      delete item.created_at;
+      delete item.updated_at;
+
+      return item;
+    });
+
+    state.items = sanitazedItems;
   },
   [types.SET_TOTAL_ITEMS](state, totalItems) {
     state.totalItems = totalItems;

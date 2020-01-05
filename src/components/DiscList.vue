@@ -4,7 +4,9 @@
       <ul v-if="items.length" class="disc-list">
         <li class="disc-item" v-for="item in items" :key="item.id">
           <div class='btn-container'>
-            <button><font-awesome-icon class="search-icon" icon="edit"/></button>
+            <button @click="$router.push({name: 'EditDisc', params: { disc: item }})">
+              <font-awesome-icon class="search-icon" icon="edit"/>
+            </button>
             <button><font-awesome-icon class="search-icon" icon="trash"/></button>
           </div>
           <img :src="item.cover" :alt="item.name">

@@ -45,10 +45,10 @@ export default {
     padding: 10px 20px;
     color: #929292;
     font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: .3px;
 
     &::placeholder{
-      color: #ccbdbd;
+      color: #b5b5b5;
     }
   }
 
