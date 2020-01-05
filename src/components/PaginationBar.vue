@@ -26,7 +26,7 @@ export default {
       return Math.ceil(this.totalItems / itemsPerPage);
     },
     isLastPage() {
-      return this.currentPage === this.totalPages;
+      return this.currentPage >= this.totalPages;
     },
     isFirstPage() {
       return this.currentPage === 1;

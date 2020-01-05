@@ -7,7 +7,9 @@
             <button @click="$router.push({name: 'EditDisc', params: { disc: item }})">
               <font-awesome-icon class="search-icon" icon="edit"/>
             </button>
-            <button><font-awesome-icon class="search-icon" icon="trash"/></button>
+            <button @click="onDelete(item.id)">
+              <font-awesome-icon class="search-icon" icon="trash"/>
+            </button>
           </div>
           <img :src="item.cover" :alt="item.name">
           <div class="info-container">
@@ -45,6 +47,12 @@ export default {
     items: 'discs/items',
     totalItems: 'discs/totalItems',
   }),
+  methods: {
+    async onDelete(id) {
+      const confirmDelete = confirm('Voce deseja excluir esse disco?');
+      if (confirmDelete) this.$emit('onDelete', id);
+    },
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <search-bar @onSearch="onSearch"/>
-    <disc-list />
+    <disc-list @onDelete="onDelete"/>
     <div class="btn-container">
       <pagination-bar
         :currentPage="currentPage"
@@ -48,6 +48,10 @@ export default {
         this.hideLoading();
       }
     },
+    async onReload() {
+      this.currentPage = 1;
+      await this.loadData();
+    },
     async onSearch(searchParam) {
       this.currentPage = 1;
       this.searchParam = searchParam;
@@ -61,10 +65,19 @@ export default {
       this.currentPage -= 1;
       await this.loadData();
     },
+    async onDelete(id) {
+      try {
+        await this.removeDisc(id);
+        await this.onReload();
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
     ...mapActions({
       getDiscs: 'discs/getDiscs',
       showLoading: 'loading/show',
       hideLoading: 'loading/hide',
+      removeDisc: 'discs/removeDisc',
     }),
   },
 };
