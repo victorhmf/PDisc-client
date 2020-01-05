@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 
 export default {
   data: () => ({
@@ -21,21 +20,8 @@ export default {
   }),
   methods: {
     async handleSubmitButton() {
-      try {
-        this.showLoading();
-        const { searchParam } = this;
-        await this.getDiscs({ searchParam });
-      } catch (error) {
-        console.log(error);
-      } finally {
-        this.hideLoading();
-      }
+      this.$emit('onSearch', this.searchParam);
     },
-    ...mapActions({
-      getDiscs: 'discs/getDiscs',
-      showLoading: 'loading/show',
-      hideLoading: 'loading/hide',
-    }),
   },
 };
 </script>

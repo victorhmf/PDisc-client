@@ -1,30 +1,30 @@
 <template>
   <section class="sec-my-collection">
     <h1 class="title">MINHA COLEÇÃO</h1>
-      <ul v-if="discs.length" class="disc-list">
-        <li class="disc-item" v-for="disc in discs" :key="disc.id">
+      <ul v-if="items.length" class="disc-list">
+        <li class="disc-item" v-for="item in items" :key="item.id">
           <div class='btn-container'>
-            <button><font-awesome-icon class="search-icon" icon="edit" /></button>
-            <button> <font-awesome-icon class="search-icon" icon="trash"/></button>
+            <button><font-awesome-icon class="search-icon" icon="edit"/></button>
+            <button><font-awesome-icon class="search-icon" icon="trash"/></button>
           </div>
-          <img :src="disc.cover" :alt="disc.name">
+          <img :src="item.cover" :alt="item.name">
           <div class="info-container">
-            <h3 class="disc-name">{{disc.name}}</h3>
+            <h3 class="disc-name">{{ item.name }}</h3>
             <div>
               <label>Ano de Lançamento: </label>
-              <span>{{disc.releaseYear}}</span>
+              <span>{{ item.releaseYear }}</span>
             </div>
             <div>
               <label>Gênero: </label>
-              <span>{{disc.genre}}</span>
+              <span>{{ item.genre }}</span>
             </div>
             <div>
               <label>Gravadora: </label>
-              <span>{{disc.recordCompany}}</span>
+              <span>{{ item.recordCompany }}</span>
             </div>
             <div>
               <label>Produção: </label>
-              <span>{{disc.production}}</span>
+              <span>{{ item.production }}</span>
             </div>
           </div>
         </li>
@@ -38,10 +38,10 @@
 <script>
 import { mapGetters } from 'vuex';
 
-
 export default {
   computed: mapGetters({
-    discs: 'discs/items',
+    items: 'discs/items',
+    totalItems: 'discs/totalItems',
   }),
 };
 </script>
@@ -57,7 +57,7 @@ export default {
       border-left-color: #f47c48;
       padding-left: 15px;
       color: #848282;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       font-size: 20px;
     }
   }
