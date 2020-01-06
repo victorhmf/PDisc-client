@@ -109,7 +109,7 @@ export default {
       display: block;
       border: 0;
       width: 100%;
-      height: auto;
+      height: 260px;
 
     }
 
