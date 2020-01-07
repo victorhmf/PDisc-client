@@ -2,5 +2,7 @@ const types = {};
 
 types.SET_ITEMS = 'SET_ITEMS';
 types.SET_TOTAL_ITEMS = 'SET_TOTAL_ITEMS';
+types.SET_VALIDATION_ERRORS = 'SET_VALIDATION_ERRORS';
+types.RESET_VALIDATION_ERRORS = 'RESET_VALIDATION_ERRORS';
 
 export default types;

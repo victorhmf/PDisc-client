@@ -3,7 +3,7 @@ import types from './types';
 const state = {
   items: [],
   totalItems: 0,
-  currentPage: 1,
+  validationErrors: {},
 };
 
 const mutations = {
@@ -19,6 +19,12 @@ const mutations = {
   },
   [types.SET_TOTAL_ITEMS](state, totalItems) {
     state.totalItems = totalItems;
+  },
+  [types.SET_VALIDATION_ERRORS](state, errors) {
+    state.validationErrors = errors;
+  },
+  [types.RESET_VALIDATION_ERRORS](state) {
+    state.validationErrors = {};
   },
 };
 

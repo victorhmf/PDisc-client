@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 export default {
   data: () => ({
     searchParam: '',
@@ -27,48 +26,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.searchbar-container {
+  background: #f5f6f6;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
 
-  .searchbar-container {
-    background: #f5f6f6;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
+.searchbar-input {
+  background: #fff;
+  height: 44px;
+  width: 700px;
+  border-top-left-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  border: none;
+  padding: 10px 20px;
+  color: #929292;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+
+  &::placeholder {
+    color: #b5b5b5;
   }
+}
 
-  .searchbar-input {
-    background: #fff;
-    height: 44px;
-    width: 700px;
-    border-top-left-radius: 30px 30px;
-    border-bottom-left-radius: 30px 30px;
-    border: none;
-    padding: 10px 20px;
-    color: #929292;
-    font-size: 16px;
-    letter-spacing: .3px;
+.submit-search-btn {
+  height: 44px;
+  width: 60px;
+  border: none;
+  background: #fff;
+  border-top-right-radius: 30px 30px;
+  border-bottom-right-radius: 30px 30px;
+  cursor: pointer;
 
-    &::placeholder{
-      color: #b5b5b5;
-    }
+  &:hover {
+    background: #eff1f1;
   }
+}
 
-  .submit-search-btn {
-    height: 44px;
-    width: 60px;
-    border: none;
-    background: #fff;
-    border-top-right-radius: 30px 30px;
-    border-bottom-right-radius: 30px 30px;
-    cursor: pointer;
-
-    &:hover {
-      background: #eff1f1;
-    }
-  }
-
-  .search-icon {
-    font-size: 18px;
-    color: #f47c48;
-  }
-
+.search-icon {
+  font-size: 18px;
+  color: #f47c48;
+}
 </style>

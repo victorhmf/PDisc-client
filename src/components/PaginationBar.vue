@@ -49,31 +49,30 @@ export default {
 
 
 <style lang="scss" scoped>
-  .pagination-container {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    width: 260px;
+.pagination-container {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 260px;
+}
+
+.pagination-button {
+  color: #f47c48;
+  background: #fff;
+  border: 1px solid #f47c48;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  width: 110px;
+
+  &:hover {
+    background: #f47c48;
+    color: #fff;
   }
 
-  .pagination-button {
-    color: #f47c48;
-    background: #fff;
-    border: 1px solid #f47c48;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    width: 110px;
-
-    &:hover {
-      background: #f47c48;
-      color: #fff;
-    }
-
-    &[disabled=disabled] {
-      opacity: 0.4;
-    }
+  &[disabled="disabled"] {
+    opacity: 0.4;
   }
-
+}
 </style>

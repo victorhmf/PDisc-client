@@ -1,6 +1,6 @@
 <template>
   <div>
-    <disc-form @onSubmit="handleSubmit" :disc=disc />
+    <disc-form @onSubmit="handleSubmit" :disc="disc" />
   </div>
 </template>
 
@@ -36,7 +36,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-</style>

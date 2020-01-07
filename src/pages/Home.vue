@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <search-bar @onSearch="onSearch"/>
-    <disc-list @onDelete="onDelete"/>
+    <search-bar @onSearch="onSearch" />
+    <disc-list @onDelete="onDelete" />
     <div class="btn-container">
       <pagination-bar
         :currentPage="currentPage"
@@ -9,15 +9,13 @@
         @onPrevPage="onPrevPage"
       />
       <button class="add-btn" @click="$router.push({name: 'NewDisc'})">
-        <font-awesome-icon class="" icon="plus"/>
-        Novo Disco
+        <font-awesome-icon class="" icon="plus" />Novo Disco
       </button>
     </div>
   </div>
 </template>
 
 <script>
-
 import { mapActions } from 'vuex';
 import SearchBar from '@/components/SearchBar.vue';
 import DiscList from '@/components/DiscList.vue';
@@ -84,26 +82,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .btn-container {
-    padding: 40px 7%;
-    display: flex;
-    justify-content: space-between;
+.btn-container {
+  padding: 40px 7%;
+  display: flex;
+  justify-content: space-between;
+}
+.add-btn {
+  border: none;
+  background: #f47c48;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  width: 130px;
 
+  &:hover {
+    color: #f47c48;
+    background: #fff;
+    border: 1px solid #f47c48;
   }
-  .add-btn {
-    border: none;
-    background: #f47c48;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    width: 130px;
-
-    &:hover {
-      color: #f47c48;
-      background: #fff;
-      border: 1px solid #f47c48;
-    }
-  }
+}
 </style>
