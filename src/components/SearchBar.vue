@@ -60,7 +60,11 @@ export default {
   cursor: pointer;
 
   &:hover {
-    background: #eff1f1;
+    background: #f47c48;
+
+    .search-icon {
+      color: #fff;
+    }
   }
 }
 

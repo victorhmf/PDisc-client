@@ -162,7 +162,7 @@ form {
 
   button {
     margin-top: 25px;
-    border: none;
+    border: 1px solid #f47c48;
     background: #f47c48;
     color: #fff;
     padding: 10px;
@@ -175,7 +175,6 @@ form {
     &:hover {
       color: #f47c48;
       background: #fff;
-      border: 1px solid #f47c48;
     }
   }
 }
