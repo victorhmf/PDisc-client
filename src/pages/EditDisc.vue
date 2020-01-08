@@ -7,11 +7,13 @@
 <script>
 import { mapActions } from 'vuex';
 import DiscForm from '../components/DiscForm.vue';
+import responseErrorMixin from '../mixins/responseError';
 
 export default {
   components: {
     DiscForm,
   },
+  mixins: [responseErrorMixin],
   props: {
     disc: Object,
   },
@@ -23,7 +25,7 @@ export default {
 
         this.$router.push({ name: 'Home' });
       } catch (error) {
-        console.log(error.response);
+        this.handleResponseError(error);
       } finally {
         this.hideLoading();
       }
