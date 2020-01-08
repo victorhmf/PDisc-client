@@ -1,19 +1,7 @@
-# teste
+# PDisc-Client
 
-## Project setup
-```
-yarn install
-```
+## Configuração do Projeto
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Para configurar o ambiente de desenvolvimento do projeto siga as instruções no repositório: 
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://github.com/victorhmf/PDisc-dev-env
