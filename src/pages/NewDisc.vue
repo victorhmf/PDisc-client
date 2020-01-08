@@ -19,6 +19,10 @@ export default {
       try {
         this.showLoading();
         await this.createDisc(data);
+        this.showNotify({
+          type: 'success',
+          message: 'Disco criado com sucesso!',
+        });
 
         this.$router.push({ name: 'Home' });
       } catch (error) {
@@ -31,6 +35,7 @@ export default {
       createDisc: 'discs/createDisc',
       showLoading: 'loading/show',
       hideLoading: 'loading/hide',
+      showNotify: 'notify/show',
     }),
   },
 };

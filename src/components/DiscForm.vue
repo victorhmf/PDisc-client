@@ -146,19 +146,17 @@ form {
     }
 
     .input-error {
-      border-bottom: 1px solid #f56161;
+      border-bottom: 1px solid #e32249;
     }
 
     p {
       padding: 3px 10px;
       font-size: 10px;
-      color: #fff;
-      color: red;
       height: 18px;
     }
 
     .show-error {
-      color: #f56161;
+      color: #e32249;
     }
   }
 

@@ -15,7 +15,6 @@ actions.getDiscs = ({ commit }, queryParams = {}) => {
 
 actions.createDisc = (context, data) => api.post('/discs', data);
 
-
 actions.updateDisc = (context, { id, ...data }) => api.put(`/discs/${id}`, data);
 
 actions.removeDisc = (context, id) => api.delete(`/discs/${id}`);

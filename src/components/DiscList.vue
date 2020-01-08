@@ -41,6 +41,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 
 export default {
   computed: mapGetters({

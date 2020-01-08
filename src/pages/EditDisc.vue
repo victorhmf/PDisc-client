@@ -22,6 +22,10 @@ export default {
       try {
         this.showLoading();
         await this.updateDisc(data);
+        this.showNotify({
+          type: 'success',
+          message: 'Disco atualizado com sucesso!',
+        });
 
         this.$router.push({ name: 'Home' });
       } catch (error) {
@@ -34,6 +38,7 @@ export default {
       updateDisc: 'discs/updateDisc',
       showLoading: 'loading/show',
       hideLoading: 'loading/hide',
+      showNotify: 'notify/show',
     }),
   },
 };

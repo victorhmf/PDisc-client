@@ -3,14 +3,16 @@
     <search-bar @onSearch="onSearch" />
     <disc-list @onDelete="onDelete" />
     <div class="btn-container">
+      <button class="add-btn" @click="$router.push({name: 'NewDisc'})">
+        <font-awesome-icon class="plus-icon" icon="plus" />
+        Novo Disco
+      </button>
       <pagination-bar
+        v-show="dataLoaded"
         :currentPage="currentPage"
         @onNextPage="onNextPage"
         @onPrevPage="onPrevPage"
       />
-      <button class="add-btn" @click="$router.push({name: 'NewDisc'})">
-        <font-awesome-icon class="" icon="plus" />Novo Disco
-      </button>
     </div>
   </div>
 </template>
@@ -30,6 +32,7 @@ export default {
   data: () => ({
     currentPage: 1,
     searchParam: '',
+    dataLoaded: false,
   }),
   async mounted() {
     await this.loadData();
@@ -40,8 +43,12 @@ export default {
         this.showLoading();
         const { searchParam, currentPage: page } = this;
         await this.getDiscs({ page, searchParam });
+        this.dataLoaded = true;
       } catch (error) {
-        console.log(error);
+        this.showNotify({
+          type: 'error',
+          message: 'Não poi possível recuperar os dados no momento. Tente novamente mais tarde!',
+        });
       } finally {
         this.hideLoading();
       }
@@ -68,7 +75,10 @@ export default {
         await this.removeDisc(id);
         await this.onReload();
       } catch (error) {
-        console.log(error.response);
+        this.showNotify({
+          type: 'error',
+          message: 'Não poi possível realizar a operação no momento. Tente novamente mais tarde!',
+        });
       }
     },
     ...mapActions({
@@ -76,6 +86,7 @@ export default {
       showLoading: 'loading/show',
       hideLoading: 'loading/hide',
       removeDisc: 'discs/removeDisc',
+      showNotify: 'notify/show',
     }),
   },
 };
@@ -88,6 +99,8 @@ export default {
   justify-content: space-between;
 }
 .add-btn {
+  display: flex;
+  justify-content: space-around;
   border: none;
   background: #f47c48;
   color: #fff;

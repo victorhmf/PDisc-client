@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <loading-indicator/>
+    <notify/>
     <app-header/>
     <router-view/>
   </div>
@@ -9,11 +10,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import LoadingIndicator from './components/LoadingIndicator.vue';
+import Notify from './components/Notify.vue';
 
 export default {
   components: {
     AppHeader,
     LoadingIndicator,
+    Notify,
   },
 };
 </script>
